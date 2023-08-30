@@ -1,0 +1,249 @@
+@import "~bootstrap/scss/bootstrap";
+
+* {
+    margin: none;
+}
+
+body {
+    background-color: #f7f7f8;
+    font-family: 'Bricolage Grotesque',
+        sans-serif;
+}
+
+nav {
+    z-index: 1;
+    width: 98%;
+    height: 10vh;
+    background-color: white;
+}
+
+nav>* {
+    @extend .mx-3,
+    .my-0;
+    cursor: pointer;
+}
+
+
+// .h1 {
+//     // font-size: calc(3.375rem + 1.5vw);
+// }
+
+.about-wrapper {
+    height: 100vh;
+}
+
+.name {
+    background-color: #FFEF5C;
+}
+
+
+.card {
+    position: relative;
+    // width: 300px;
+    // height: 200px;
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(-45deg, #E34c26 0%, #F06529 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card svg {
+    width: 48px;
+    fill: #333;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card:hover {
+    transform: rotate(-5deg) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    height: 200px;
+}
+
+.card__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card:hover .card__content {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 1;
+}
+
+.card__title {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+    font-weight: 700;
+}
+
+.card__description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #777;
+    line-height: 1.4;
+}
+
+.card:hover svg {
+    scale: 0;
+    transform: rotate(-45deg);
+}
+
+
+
+@keyframes flip-scale-down-hor {
+    0% {
+        transform: scale(1) rotateX(0);
+    }
+
+    50% {
+        transform: scale(0.4) rotateX(90deg);
+    }
+
+    100% {
+        transform: scale(1) rotateX(180deg);
+    }
+}
+
+.project-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-cards .card {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100px;
+    width: 250px;
+    border-radius: 10px;
+    background: #ffef5c;
+    color: black;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.project-cards .card p.tip {
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.project-cards .card p.second-text {
+    font-size: .7em;
+}
+
+.project-cards .card:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.project-cards:hover>.card:not(:hover) {
+    filter: blur(10px);
+    transform: scale(0.9, 0.9);
+}
+
+// 
+.contact-cards {
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 25px;
+    gap: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+}
+
+.contact-cards>a {
+    text-decoration: none;
+    color: black;
+    width: 50px;
+    height: 50px;
+    background-color: #c7c1c1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s linear;
+}
+
+.contact-cards>.mail:hover {
+    background-color: #ffef5c;
+}
+
+.contact-cards>.instagram:hover {
+    background-color: #EF72EB;
+}
+
+.contact-cards>.github:hover {
+    background-color: #8010F1;
+}
+
+.contact-cards>.upwork:hover {
+    background-color: #14a800;
+}
+
+.contact-box:hover>div {
+    animation: moveDown .2s linear;
+}
+
+.contact-box.mail {
+    width: auto;
+}
+
+.contact-box>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@keyframes moveDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}
+
+
+@keyframes slide-in-top {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width:575px) {
+    .contact-cards>a {
+        width: 100%;
+    }
+}
